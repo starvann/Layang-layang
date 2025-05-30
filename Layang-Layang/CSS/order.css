@@ -1,0 +1,208 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.form-box {
+  width: 45%;
+  background-color: #fff;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.info-box {
+  width: 55%;
+  background-image: url("Layang-Background.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: brightness(0.5);
+}
+
+input,
+select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.menu-item {
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #005fa3;
+}
+
+.btn-secondary {
+  background-color: #28a745;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.btn-secondary:hover {
+  background-color: #218838;
+}
+
+.remove-menu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.site-footer {
+  background-color: #b8d7e9;
+  color: #fff;
+  padding: 50px 30px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  min-width: 220px;
+}
+
+.subscribe-input,
+.subscribe-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.subscribe-btn {
+  background-color: orange;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-box,
+  .info-box {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .form-box {
+    order: 1;
+  }
+
+  .info-box {
+    order: 2;
+    min-height: 200px;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ===== Responsive Enhancements for inputs ===== */
+@media (max-width: 480px) {
+  input,
+  select {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .form-box h2 {
+    font-size: 1.5rem;
+  }
+}

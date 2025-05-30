@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pemesanan</title>
+    <link rel="stylesheet" href="CSS/order.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- KIRI: FORM -->
+      <div class="form-box">
+        <h2>Form Pemesanan</h2>
+        <form id="order-form">
+          <input type="text" placeholder="Nama Lengkap" name="nama" required />
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="tel" placeholder="Nomor Telepon" name="telepon" required />
+          <input type="text" placeholder="Alamat Pengantaran" name="alamat" required />
+          <div id="menu-list">
+            <div class="menu-item">
+              <select class="menu-select" required>
+                <option value="" disabled selected>Pilih Menu</option>
+              </select>
+              <input type="number" placeholder="Jumlah" name="jumlah[]" min="1" value="1" required />
+              <input type="text" placeholder="Catatan (Opsional)" name="catatan[]" />
+              <button type="button" class="remove-menu" title="Hapus Menu">🗑️</button>
+            </div>
+          </div>
+          <button type="button" id="add-menu" class="btn-secondary">+ Tambah Menu</button>
+          <button type="submit" class="btn-primary">Pesan Sekarang</button>
+        </form>
+        
+      </div>
+
+      <!-- KANAN: BACKGROUND / INFO -->
+      <div class="info-box">
+        <img src="Assets/Layang-logo.png" alt="Layang Logo" class="logo" />
+        </ul>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <img src="Assets/Layang-Logo.png" alt="Company Logo" class="footer-logo" />
+          <p class="tagline">Layang Layang</p>
+    
+          <h3>About Us</h3>
+          <p>Dapatkan makanan favoritmu dengan cepat dan mudah!</p>
+    
+          <h4>Contact Us</h4>
+          <p>📞 083838117226</p>
+          <p>📧 riaazza304@gmail.com</p>
+        </div>
+    
+        <div class="footer-section">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#Rekomendasi-Menu">Rekomendasi Menu</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+          </ul>
+        </div>w
+    
+        <div class="footer-section">
+          <h3>Subscribe More Info</h3>
+          <input type="email" placeholder="Enter your Email" class="subscribe-input">
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/1EUomTGTBi/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/tempechiken?s=21"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/azaza.jpg?igsh=MTRzYWJla25scXd2MQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+        </div>        
+        <p>Copyright &copy;2025 | This website is made with love by Azaria Adila Putri</p>
+      </div>
+    </footer>    
+    <script>
+      let layangMenuList = [];
+    
+      window.onload = function () {
+        const params = new URLSearchParams(window.location.search);
+        const menuParam = params.get("menu");
+    
+        if (menuParam) {
+          try {
+            layangMenuList = JSON.parse(decodeURIComponent(menuParam));
+    
+            // Isi semua dropdown awal (bisa lebih dari satu)
+            const selects = document.querySelectorAll('.menu-select');
+            selects.forEach(select => {
+              populateDropdown(select);
+            });
+          } catch (e) {
+            console.error("Gagal parsing menu dari URL:", e);
+          }
+        }
+      };
+    
+      function populateDropdown(selectElement) {
+        selectElement.innerHTML = '<option value="" disabled selected>Pilih Menu</option>';
+        layangMenuList.forEach(menu => {
+          const option = document.createElement('option');
+          option.value = menu;
+          option.textContent = menu;
+          selectElement.appendChild(option);
+        });
+      }
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuList = document.getElementById("menu-list");
+        const addBtn = document.getElementById("add-menu");
+    
+        addBtn.addEventListener("click", function () {
+          const menuDiv = document.createElement("div");
+          menuDiv.classList.add("menu-item");
+    
+          // Buat select kosong, nanti diisi oleh fungsi populateDropdown()
+          menuDiv.innerHTML = `
+            <select class="menu-select" required></select>
+            <input type="number" placeholder="Jumlah" name="jumlah[]" min="1" value="1" required />
+            <input type="text" placeholder="Catatan (Opsional)" name="catatan[]" />
+            <button type="button" class="remove-menu" title="Hapus Menu">🗑️</button>
+          `;
+    
+          menuList.appendChild(menuDiv);
+    
+          const newSelect = menuDiv.querySelector(".menu-select");
+          populateDropdown(newSelect);
+        });
+    
+        menuList.addEventListener("click", function (e) {
+          if (e.target.classList.contains("remove-menu")) {
+            e.target.parentElement.remove();
+          }
+        });
+      });
+    </script>
+    
+  </body>
+</html>
