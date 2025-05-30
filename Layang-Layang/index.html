@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layang Food Delivery</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- === NAVBAR === -->
+    <header class="navbar">
+      <img src="Assets/Layang-logo.png" alt="Layang Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#Rekomendasi-Menu">Rekomendasi Menu</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">Tentang Kami</a></li>
+          <li>
+            <a href="#Rekomendasi-Menu" class="btn sign-in">Pesan Sekarang!</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    
+    <button class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+
+    <!-- === POPUP NAMA === -->
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+        <h2>Selamat Datang!</h2>
+        <p>Siapa nama kamu?</p>
+        <input type="text" id="nameInput" placeholder="Masukkan nama kamu" />
+        <button id="submitName">Masuk</button>
+      </div>
+    </div>
+
+    <!-- ==== HERO SECTION === -->
+    <section class="hero" id="hero">
+      <div class="hero-text">
+        <h1>Hi, <span id="username"></span>!</h1>
+        <h1>Enjoy Your Food<br />with Fastest Delivery<br />from Layang-Layang</h1>
+        <p>
+          Order your food from the best restaurant and we will deliver it
+          without taking long time
+        </p>
+        <button class="btn-primary">
+          <a href="#Rekomendasi-Menu" class="cta">Mulai</a>
+        </button>
+      </div>
+      <div class="hero-image">
+        <img src="Assets/kiki-dev.png" alt="Kiki Delivery Service" />
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2 class="Section-Title">Our Services</h2>
+      <div class="service-list">
+        <div class="service-item">
+          <img src="Assets/Resto-Layang.png" alt="Restaurant" />
+          <p>Memilih tempat makan yang paling baik</p>
+        </div>
+        <div class="service-item">
+          <img src="Assets/Deliv-Layang.png" alt="Courier" />
+          <p>Mengantarkan dengan baik</p>
+        </div>
+        <div class="service-item">
+          <img src="Assets/Eat-Layang.png" alt="Quality" />
+          <p>Makanan tepat waktu dengan kondisi baik</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === REKOMENDASI SECTION === -->
+    <section class="recommended-menu" id="Rekomendasi-Menu">
+      <h2 class="Section-Title">Rekomendasi Menu</h2>
+      <div class="slider-container">
+        <button class="slider-btn left" onclick="scrollSlider(-1)">
+          &#10094;
+        </button>
+        <div class="slider" id="menu-slider">
+          <div
+            class="menu-card"
+            onclick="openDetail('Sate Ayam','Sate ayam empuk dengan bumbu kacang khas Indonesia.','4.8',[['Ani', 'Satenya lembut!'], ['Budi', 'Bumbunya enak banget']],'Jl. Sate No. 5, Batang',['Sate Ayam', 'Sate Kambing', 'Tengkleng'])"
+          >
+            <img src="Assets/Sate-Layang.png" alt="Sate Ayam" />
+            <h3>Sate Ayam</h3>
+            <p class="rating">⭐ 4.8</p>
+            <p class="desc">Sate ayam dengan bumbu kacang gurih</p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Bakso', 'Bakso kenyal dengan kuah gurih dan sambal.', '4.5', [['Evi', 'Baksonya Kenyal!'], ['Jaya', 'Bumbunya enak banget']],'Jl. Bakso No. 5, Batang',['Bakso', 'Es Teh', 'Tahu Goreng'])"
+          >
+            <img src="Assets/Bakso-Layang.png" alt="Bakso" />
+            <h3>Bakso</h3>
+            <p class="rating">⭐ 4.5</p>
+            <p class="desc">Bakso isi daging dengan kuah gurih</p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Mie Goreng', 'Mie goreng dengan bumbu yang pas.', '4.8', [['Listi', 'Ayamnya ga pelit!'], ['Pak Min', 'Manisnya pas']],'Jl. Kuliner No. 9, Batang',['Mie goreng', 'Es Teh', 'Mie Rebus'])"
+          >
+            <img src="Assets/Mie goreng.jpeg" alt="Mie Goreng" />
+            <h3>Mie Goreng</h3>
+            <p class="rating" gurih>⭐ 4.8</p>
+            <p class="desc">Mie goreng dengan manis yang pas.</p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Ayam Geprek', 'Ayamnya lembut, pedasnya pas.', '4.8', [['Pak Mukti', 'Pedasnya pas!'], ['Is', 'Ayamnya Lembut']],'Jl. Kuliner No. 11, Batang',['Ayam Geprek', 'Ayam Penyet', 'Ayam Gepuk'])"
+          >
+            <img src="Assets/Layang-AyamGeprek.jpeg" alt="Ayam Geprek" />
+            <h3>Ayam Geprek</h3>
+            <p class="rating" gurih>⭐ 3.9</p>
+            <p class="desc">Ayam geprek dengan ayam segar pilihan.</p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Seblak', 'Seblak edngan rempah yang kaya.', '4.8', [['Dea', 'Cikurnya berasa'], ['Cia', 'Bumbunya banyak, enak']],'Jl. Kuliner No. 16, Batang',['Seblak Cakar', 'Seblak Suki', 'Es Jeruk'])"
+          >
+            <img src="Assets/Layang-Seblak.jpeg" alt="Seblak" />
+            <h3>Seblak</h3>
+            <p class="rating" gurih>⭐ 4.9</p>
+            <p class="desc">
+              Seblak dengan rempah pilihan yang menggugah selera.
+            </p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Mie Ayam', 'Mie Ayam dengan toping ayam melimpah dan takaran kuah yang pas.', '4.8',[['Armi', 'Ayamnya banyak bangettt'], ['Ati', 'Love deh pokonyaa']],'Jl. Kuliner No. 1, Batang',['Mie Ayam', 'Es Teh', 'Es Jeruk'])"
+          >
+            <img src="Assets/Layang-MieAyam.jpeg" alt="Mie Ayam" />
+            <h3>Mie Ayam</h3>
+            <p class="rating" gurih>⭐ 4.8</p>
+            <p class="desc">
+              Mie ayam dengan kuah kental dan toping ayam melimpah.
+            </p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Martabak Telor', 'Martabak Telor dengan daging yang melimpah', '4.8', [['Jue', 'Ga pelit dagingggg']], 'Jl. Kuliner No. 98, Batang',['Martabak Special', 'Martabak Istimewa', 'Martabak Super'])"
+          >
+            <img src="Assets/Layang-MartabakAsin.jpeg" alt="Martabak Asin" />
+            <h3>Martabak Telor</h3>
+            <p class="rating" gurih>⭐ 4.5</p>
+            <p class="desc">
+              Martabak Telor dengan bebek pilihan dan isian daging yang
+              melimpah.
+            </p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Tempe Mendoan', 'Tempe mendoan dengan bumbu adonan yang enak', '4.8', [['Pram', 'Tingkat Kematangannya pas']],'Jl. Kuliner No. 189, Batang',['Tempe Mendoan', 'Tahu isi', 'Bakwan'])"
+          >
+            <img src="Assets/Layang-Mendoan.jpeg" alt="Mendoan" />
+            <h3>Tempe Mendoan</h3>
+            <p class="rating" gurih>⭐ 4.6</p>
+            <p class="desc">Tempe mendoan dengan bumbu adonan yang enak.</p>
+          </div>
+          <div
+            class="menu-card"
+            onclick="openDetail('Kopi', 'Kopi dengan biji kopi pilihan', '4.8', [['Aza', 'Americanonya juaraaaaaaa'], ['Vanya', 'Baristanya cakeepppp']],'Jl. Kuliner No. 141, Batang',['Americano', 'Ekspresso', 'Latte'])"
+          >
+            <img src="Assets/LayangKopi.jpeg" alt="Kopi" />
+            <h3>Kopi</h3>
+            <p class="rating" gurih>⭐ 5</p>
+            <p class="desc">Kopi dengan biji kopi pilihan asal Indonesia.</p>
+          </div>
+        </div>
+        <button class="slider-btn right" onclick="scrollSlider(1)">
+          &#10095;
+        </button>
+      </div>
+    </section>
+
+    <!-- === MENU SECTION === -->
+    <section class="food-menu" id="menu">
+      <h2 class="Section-Title">Menu</h2>
+      <div class="food-list">
+        <div
+          class="food-item"
+          onclick="openDetail( 'Nasi Goreng', 'Nasi goreng spesial dengan ayam, telur, dan kerupuk.','4.8', [['Dina', 'Enak banget!'], ['Rafi', 'Cepat sampai dan panas']],'Jl. Nasi No. 10, Batang', ['Mie Goreng', 'Capcay', 'Kwetiau','Es Teh'])"
+        >
+          >
+          <img src="Assets/nasi-goreng.jpeg" alt="Nasi Goreng" />
+          <h3>Nasi Goreng</h3>
+          <p class="rating">⭐ 4.7</p>
+          <p class="desc">
+            Nasi goreng khas dengan ayam suwir, telur orak-arik, dan kerupuk
+            gurih.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Mie Ayam', 'Mie Ayam dengan kuah gurih, ayam manis gurih, dan sawi segar.','4.6', [['Eva', 'Enak banget cuyyy, gilaaa! ajib coba'], ['Joyo', 'Driver dan Chef nya sat-set abiesssss']],'Jl. Mie Ayam No. 08, Batang', ['Bakso', 'Es Jeruk', 'Mie Ayam Bakso'])"
+        >
+          <img src="Assets/Layang-MieAyam.jpeg" alt="Mie Ayam" />
+          <h3>Mie Ayam</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Mie ayam dengan kuah gurih, ayam manis gurih, dan sawi segar.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Bakso', 'Bakso sapi kenyal dengan kuah kaldu gurih dan mie putih.', '4.6', 
+          [
+            ['Kiki', 'Baksonya kenyal, kuahnya gurih banget.'],
+            ['Lia', 'Mie putihnya bikin beda, enak!'],
+            ['Mila', 'Cocok untuk yang suka kuah kaldu kuat.'],
+            ['Nina', 'Porsi banyak, baksonya besar-besar.'],
+            ['Omar', 'Cocok dimakan pas hujan.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Bakso Urat', 'Bakso Telur', 'Bakso Keju', 'Bakso Jumbo', 'Bakso Campur'])"
+        >
+          <img src="Assets/Bakso-Layang.png" alt="Bakso" />
+          <h3>Bakso</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Bakso sapi kenyal dengan kuah kaldu gurih dan mie putih.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Batagor', 
+          'Batagor Bandung dengan kulit garing dan bumbu kacang kental.', 
+          '4.6', 
+          [
+            ['Pipit', 'Batagornya crunchy, bumbu kacangnya mantap.'],
+            ['Qori', 'Saus kacangnya kental, enak banget.'],
+            ['Rani', 'Batagornya besar-besar, puas makannya.'],
+            ['Sari', 'Porsinya pas, harganya terjangkau.'],
+            ['Tina', 'Garingnya tahan lama, enak dimakan kapan saja.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Batagor Kuah', 'Batagor Kering', 'Batagor Campur', 'Batagor Jumbo', 'Batagor Tahu'])"
+        >
+          <img src="Assets/batagor-layang.jpeg" alt="Batagor" />
+          <h3>Batagor</h3>
+          <p class="rating">⭐ 3.7</p>
+          <p class="desc">
+            Batagor Bandung dengan kulit garing dan bumbu kacang kental.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Ayam Geprek', 
+          'Ayam goreng tepung yang renyah dengan sambal super pedas.', 
+          '4.6', 
+          [
+            ['Udin', 'Ayamnya crispy banget, sambalnya pedas mantap!'],
+            ['Vina', 'Porsinya besar, sambalnya bikin nagih.'],
+            ['Wawan', 'Ayamnya gurih, pas buat makan siang.'],
+            ['Xena', 'Tepungnya renyah banget, recommended!'],
+            ['Yuni', 'Cocok untuk pecinta pedas.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Ayam Geprek Original', 'Ayam Geprek Keju', 'Ayam Geprek Mozarella', 'Ayam Geprek Sambal Matah', 'Ayam Geprek Level 5'])"
+        >
+          <img src="Assets/Layang-AyamGeprek.jpeg" alt="Ayam-Geprek" />
+          <h3>Ayam Geprek</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Ayam goreng tepung yang renyah dengan sambal super pedas.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Es Coklat', 
+          'Minuman coklat dingin yang kental dan manis menyegarkan.', 
+          '4.6', 
+          [
+            ['Zaki', 'Coklatnya kental, pas buat pelepas dahaga.'],
+            ['Ayu', 'Manisnya pas, dinginnya bikin segar.'],
+            ['Beni', 'Rasa coklatnya pekat, bikin nagih.'],
+            ['Cici', 'Paling enak diminum pas siang hari.'],
+            ['Dedi', 'Coklatnya asli, tidak terlalu manis.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Es Coklat Biasa', 'Es Coklat Susu', 'Es Coklat Creamy', 'Es Coklat Float', 'Es Coklat Vanilla'])"
+        >
+          <img src="Assets/Layang-EsCoklat.jpeg" alt="Es-Coklat" />
+          <h3>Es Coklat</h3>
+          <p class="rating">⭐ 4.7</p>
+          <p class="desc">
+            Minuman coklat dingin yang kental dan manis menyegarkan.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Martabak', 
+          'Martabak telur asin dengan isian daging cincang dan daun bawang.', 
+          '4.6', 
+          [
+            ['Fajar', 'Martabaknya tebal, telur asinnya terasa banget, mantap!'],
+            ['Gita', 'Isian dagingnya melimpah, daun bawangnya bikin segar.'],
+            ['Hendra', 'Porsinya besar, cocok buat ramai-ramai.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Martabak Telur', 'Martabak Manis', 'Martabak Keju', 'Martabak Coklat', 'Martabak Spesial'])"
+        >
+          <img src="Assets/Layang-MartabakAsin.jpeg" alt="Martabak" />
+          <h3>Martabak</h3>
+          <p class="rating">⭐ 4.3</p>
+          <p class="desc">
+            Martabak telur asin dengan isian daging cincang dan daun bawang.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Mendoan', 
+          'Tempe tipis digoreng setengah matang dengan adonan tepung gurih.', 
+          '4.6', 
+          [
+            ['Indra', 'Gurih dan lembut, cocok dimakan hangat.'],
+            ['Joko', 'Bumbunya pas, tapi agak berminyak.'],
+            ['Kiki', 'Cocok dimakan dengan sambal kecap, enak banget!']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Mendoan Original', 'Mendoan Keju', 'Mendoan Isi Sayur'])"
+        >
+          <img src="Assets/Layang-Mendoan.jpeg" alt="Mendoan" />
+          <h3>Mendoan</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Tempe tipis digoreng setengah matang dengan adonan tepung gurih.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Seblak', 
+          'Seblak pedas gurih dengan kerupuk basah, makaroni, dan telur.', 
+          '4.6', 
+          [
+            ['Lina', 'Pedasnya nendang! Makaroni dan kerupuknya lembut.'],
+            ['Maya', 'Telurnya creamy, cocok dengan kuah pedas.'],
+            ['Nina', 'Bagi yang suka pedas, ini wajib coba!']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Seblak Original', 'Seblak Ceker', 'Seblak Bakso', 'Seblak Telur', 'Seblak Makaroni'])"
+        >
+          <img src="Assets/Layang-Seblak.jpeg" alt="Seblak" />
+          <h3>Seblak</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Seblak pedas gurih dengan kerupuk basah, makaroni, dan telur.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Kopi', 
+          'Kopi hitam pekat dari biji Robusta pilihan, aroma kuat.', 
+          '4.6', 
+          [
+            ['Oka', 'Rasanya kuat, cocok buat pecinta kopi hitam.'],
+            ['Putra', 'Pahitnya pas, aroma robusta terasa.'],
+            ['Qori', 'Enak diminum hangat sambil ngobrol.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Kopi Hitam', 'Kopi Susu', 'Kopi Latte', 'Kopi Tubruk', 'Kopi Espresso'])"
+        >
+          <img src="Assets/LayangKopi.jpeg" alt="Kopi" />
+          <h3>Kopi</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Kopi hitam pekat dari biji Robusta pilihan, aroma kuat.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Mie Goreng', 
+          'Mie goreng manis pedas dengan sayur dan potongan sosis.', 
+          '4.6', 
+          [
+            ['Rina', 'Mienya kenyal, rasanya gurih pedas, pas!'],
+            ['Sinta', 'Porsinya cukup banyak, sayurnya segar.'],
+            ['Taufik', 'Sosisnya banyak, rasanya mantap.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Mie Goreng Original', 'Mie Goreng Seafood', 'Mie Goreng Sosis', 'Mie Goreng Pedas'])"
+        >
+          <img src="Assets/Mie goreng.jpeg" alt="Mie-Goreng" />
+          <h3>Mie Goreng</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Mie goreng manis pedas dengan sayur dan potongan sosis.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Sate', 
+          'Sate ayam dengan bumbu kacang dan lontong yang lembut.', 
+          '4.6', 
+          [
+            ['Udin', 'Bumbunya kental dan dagingnya empuk.'],
+            ['Vina', 'Lontongnya lembut, cocok banget sama satenya.'],
+            ['Wulan', 'Porsinya cukup banyak, bumbu kacangnya mantap.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Sate Ayam', 'Sate Kambing', 'Sate Sapi', 'Sate Padang'])"
+        >
+          <img src="Assets/Sate-Layang.png" alt="Sate" />
+          <h3>Sate</h3>
+          <p class="rating">⭐ 4.6</p>
+          <p class="desc">
+            Sate ayam dengan bumbu kacang dan lontong yang lembut.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Ayam Bakar', 
+          'Ayam bakar manis gurih dengan sambal dan lalapan segar.', 
+          '4.6', 
+          [
+            ['Xander', 'Dagingnya lembut dan bumbunya meresap.'],
+            ['Yanti', 'Sambalnya pedas manis, lalapannya segar.'],
+            ['Zaki', 'Kulit ayamnya renyah, rasanya juara.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Ayam Bakar Madu', 'Ayam Bakar Pedas', 'Ayam Bakar Kecap'])"
+        >
+          <img src="Assets/AyamBakar-Layang.jpeg" alt="Ayam-Bakar" />
+          <h3>Ayam Bakar</h3>
+          <p class="rating">⭐ 4.4</p>
+          <p class="desc">
+            Sate ayam dengan bumbu kacang dan lontong yang lembut.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Es Cendol', 
+          'Cendol hijau dengan santan segar dan gula merah cair.', 
+          '4.6', 
+          [
+            ['Agus', 'Segar dan manis, cendolnya kenyal banget.'],
+            ['Bella', 'Santan dan gulanya pas, nggak terlalu manis.'],
+            ['Citra', 'Cendolnya lembut, pas buat hari panas.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Es Cendol Original', 'Es Cendol Durian', 'Es Cendol Gula Aren', 'Es Cendol Kelapa'])"
+        >
+          <img src="Assets/EsCendol-Layang.jpeg" alt="EsCendol" />
+          <h3>Es Cendol</h3>
+          <p class="rating">⭐ 4.7</p>
+          <p class="desc">
+            Cendol hijau dengan santan segar dan gula merah cair.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Gudeg', 
+          'Gudeg manis khas Jogja dengan krecek dan telur bacem.', 
+          '4.6', 
+          [
+            ['Dani', 'Manisnya pas, kreceknya empuk, recommended!'],
+            ['Eka', 'Porsinya banyak, cocok buat makan siang.'],
+            ['Fahmi', 'Gudegnya kental dan kaya rasa.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Gudeg Original', 'Gudeg Telur', 'Gudeg Krecek', 'Gudeg Ayam'])"
+        >
+          <img src="Assets/Gudeg-Layang.jpeg" alt="Sate" />
+          <h3>Gudeg</h3>
+          <p class="rating">⭐ 4.1</p>
+          <p class="desc">
+            Gudeg manis khas Jogja dengan krecek dan telur bacem.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Ikan Bakar', 
+          'Ikan bakar kecap dengan sambal terasi dan nasi hangat.', 
+          '4.6', 
+          [
+            ['Gina', 'Daging ikannya empuk, sambalnya pedas nikmat.'],
+            ['Hadi', 'Bumbunya meresap sampai ke dalam, mantap!'],
+            ['Ira', 'Ikannya segar, sambalnya juara.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Ikan Bakar Kecap', 'Ikan Bakar Pedas', 'Ikan Bakar Bumbu Rujak'])"
+        >
+          <img src="Assets/IkanBakar-Layang.jpeg" alt="IkanBakar-Layang" />
+          <h3>Ikan Bakar</h3>
+          <p class="rating">⭐ 3.6</p>
+          <p class="desc">
+            Ikan bakar kecap dengan sambal terasi dan nasi hangat.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Kerak Telor', 
+          'Kerak telor khas Betawi dengan serundeng dan telur bebek.', 
+          '4.6', 
+          [
+            ['Joko', 'Aromanya wangi, rasanya gurih dan renyah.'],
+            ['Kiki', 'Serundengnya banyak, telurnya crispy.'],
+            ['Lina', 'Rasanya autentik, kaya rempah.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Kerak Telor Bebek', 'Kerak Telor Ayam', 'Kerak Telor Spesial'])"
+        >
+          <img src="Assets/KerakTelor-Layang.jpeg" alt="Kerak-Telor" />
+          <h3>Kerak Telor</h3>
+          <p class="rating">⭐ 3.2</p>
+          <p class="desc">
+            Kerak telor khas Betawi dengan serundeng dan telur bebek.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Ketoprak', 
+          'Ketoprak dengan bihun, tahu, dan bumbu kacang melimpah.', 
+          '4.6', 
+          [
+            ['Maya', 'Bumbunya kental, bihunnya pas teksturnya.'],
+            ['Nina', 'Tahu dan bihunnya lembut, bumbu kacangnya enak.'],
+            ['Oka', 'Porsinya banyak, puas banget makannya.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Ketoprak Original', 'Ketoprak Spesial', 'Ketoprak Pedas'])"
+        >
+          <img src="Assets/Ketoprak-Layang.jpeg" alt="Ketoprak-Layang" />
+          <h3>Ketoprak</h3>
+          <p class="rating">⭐ 3.6</p>
+          <p class="desc">
+            Ketoprak dengan bihun, tahu, dan bumbu kacang melimpah.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Kolak', 
+          'Kolak pisang dengan kuah santan dan gula merah legit.', 
+          '4.6', 
+          [
+            ['Putra', 'Manisnya pas, pisangnya lembut.'],
+            ['Qori', 'Kuah santannya gurih, pas banget buat buka puasa.'],
+            ['Rina', 'Kolaknya kental dan legit, mantap.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Kolak Pisang', 'Kolak Ubi', 'Kolak Campur', 'Kolak Nangka'])"
+        >
+          <img src="Assets/Kolak-Layang.jpeg" alt="Kolak" />
+          <h3>Kolak</h3>
+          <p class="rating">⭐ 2.9</p>
+          <p class="desc">
+            Kolak pisang dengan kuah santan dan gula merah legit.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Nasi Padang', 
+          'Nasi Padang dengan rendang, sambal ijo, dan sayur nangka.', 
+          '4.6', 
+          [
+            ['Sinta', 'Rendangnya empuk, sambalnya mantap.'],
+            ['Taufik', 'Porsinya banyak, rasanya autentik.'],
+            ['Udin', 'Sayurnya segar, dagingnya lembut.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Nasi Padang Rendang', 'Nasi Padang Ayam', 'Nasi Padang Dendeng', 'Nasi Padang Telur'])"
+        >
+          <img src="Assets/NasiPadang-Layang.jpeg" alt="Nasi-Padang" />
+          <h3>Nasi Padang</h3>
+          <p class="rating">⭐ 3.4</p>
+          <p class="desc">
+            Nasi Padang dengan rendang, sambal ijo, dan sayur nangka.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Nasi Pecel', 
+          'Nasi dengan sayur pecel dan bumbu kacang pedas manis.', 
+          '4.6', 
+          [
+            ['Vina', 'Bumbu kacangnya kental, sayurnya segar.'],
+            ['Wulan', 'Porsinya banyak, pedasnya pas.'],
+            ['Xander', 'Nasi pecelnya enak, bumbunya mantap.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Nasi Pecel Original', 'Nasi Pecel Lele', 'Nasi Pecel Ayam'])"
+        >
+          <img src="Assets/NasiPecel-Layang.jpeg" alt="Nasi-Pecel" />
+          <h3>Nasi Pecel</h3>
+          <p class="rating">⭐ 3.7</p>
+          <p class="desc">
+            Nasi dengan sayur pecel dan bumbu kacang pedas manis.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Opor Ayam', 
+          'Opor ayam dengan kuah santan gurih dan telur rebus.', 
+          '4.6', 
+          [
+            ['Yanti', 'Kuahnya kental, ayamnya empuk.'],
+            ['Zaki', 'Rasanya gurih dan kaya rempah, recommended.'],
+            ['Agus', 'Cocok dimakan dengan lontong, enak banget!']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Opor Ayam Original', 'Opor Ayam Pedas', 'Opor Ayam Kampung'])"
+        >
+          <img src="Assets/OporAyam-Layang.jpeg" alt="OporAyam-Layang" />
+          <h3>Opor Ayam</h3>
+          <p class="rating">⭐ 3.7</p>
+          <p class="desc">
+            Opor ayam dengan kuah santan gurih dan telur rebus.
+          </p>
+          >
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Soto', 
+          'Soto ayam bening dengan suwiran ayam dan koya gurih.', 
+          '4.6', 
+          [
+            ['Bella', 'Kuahnya segar, ayamnya lembut.'],
+            ['Citra', 'Suwiran ayamnya banyak, koya gurih.'],
+            ['Dani', 'Porsinya pas, rasanya ringan tapi kaya bumbu.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Soto Ayam', 'Soto Daging', 'Soto Betawi', 'Soto Lamongan'])"
+        >
+          <img src="Assets/Soto-Layang.jpeg" alt="Soto" />
+          <h3>Soto</h3>
+          <p class="rating">⭐ 3.7</p>
+          <p class="desc">
+            Soto ayam bening dengan suwiran ayam dan koya gurih.
+          </p>
+        </div>
+
+        <div
+          class="food-item"
+          onclick="openDetail('Es Pisang Ijo', 
+          'Es pisang ijo segar dengan sirup merah dan kuah santan manis.', 
+          '4.6', 
+          [
+            ['Eka', 'Manis dan segar, pisangnya lembut.'],
+            ['Fahmi', 'Santan dan sirupnya pas, enak banget.'],
+            ['Gina', 'Pisangnya matang sempurna, segar banget.']
+          ], 
+          'Jl. Kuliner No. 123', 
+          ['Es Pisang Ijo Original', 'Es Pisang Ijo Coklat', 'Es Pisang Ijo Durian'])"
+        >
+          <img src="Assets/EsPisangIjo-Layang.jpeg" alt="Es-Pisang-Ijo" />
+          <h3>Es Pisang</h3>
+          <p class="rating">⭐ 3.7</p>
+          <p class="desc">
+            Es pisang ijo segar dengan sirup merah dan kuah santan manis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- === POP UP SETTINGS== -->
+    <!-- POPUP Recommended Menu -->
+    <div id="popup" class="popup hidden">
+      <div class="popup-content large">
+        <span class="close-btn" onclick="hidePopup()">&times;</span>
+
+        <!-- Judul + Rating -->
+        <h2 id="popup-title"></h2>
+        <p id="popup-rating" class="rating"></p>
+
+        <!-- Deskripsi -->
+        <p id="popup-desc" class="desc" style="margin-bottom: 1.5rem"></p>
+
+        <!-- Tabel Review -->
+        <h3>Review Pengguna</h3>
+        <table class="review-table">
+          <!-- Diisi lewat JS -->
+        </table>
+
+        <!-- Form Tambah Review -->
+        <h3 style="margin-top: 1.5rem">Beri Penilaian</h3>
+        <form id="review-form" onsubmit="submitReview(event)">
+          <input
+            type="text"
+            id="reviewer-name"
+            placeholder="Nama Anda"
+            required
+          />
+          <textarea
+            id="reviewer-comment"
+            placeholder="Tulis ulasan..."
+            required
+          ></textarea>
+          <select id="reviewer-rating" required>
+            <option value="" disabled selected>Rating</option>
+            <option value="5">⭐ 5</option>
+            <option value="4">⭐ 4</option>
+            <option value="3">⭐ 3</option>
+            <option value="2">⭐ 2</option>
+            <option value="1">⭐ 1</option>
+          </select>
+          <button type="submit" class="btn-primary">Kirim Ulasan</button>
+        </form>
+
+        <!-- Lokasi Restoran -->
+        <h3 style="margin-top: 1.5rem">Lokasi Restoran</h3>
+        <p id="popup-location"></p>
+
+        <!-- Daftar Menu Lainnya -->
+        <h3 style="margin-top: 1.5rem">Menu Lainnya</h3>
+        <ul id="popup-other-menu">
+          <!-- Diisi lewat JS -->
+        </ul>
+
+        <!-- CTA Pemesanan -->
+        <button id="order-button" class="btn-primary">
+          Pesan Sekarang
+        </button>
+      </div>
+    </div>
+
+    <!-- === TENTANG KAMI === -->
+    <section class="about" id="about">
+      <div class="about-container">
+        <h2>Tentang Layang</h2>
+        <p>
+          <strong>Layang Food Delivery</strong> adalah solusi pengantaran
+          makanan cepat, aman, dan terpercaya yang terinspirasi dari semangat
+          Kiki’s Delivery Service. Kami hadir untuk membantu Anda memesan
+          makanan favorit dari berbagai restoran pilihan dengan mudah dan cepat
+          melalui platform ini.
+        </p>
+        <p>
+          Dengan tampilan sederhana namun modern, Anda bisa menjelajahi berbagai
+          menu rekomendasi, membaca ulasan, melihat lokasi restoran, dan
+          melakukan pemesanan langsung tanpa perlu login.
+        </p>
+        <p>
+          Website ini dikembangkan sebagai bagian dari pembelajaran dasar HTML
+          dan CSS, mencakup penggunaan tag semantik, form pemesanan, popup
+          interaktif, hingga layout responsif berbasis Flexbox.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <img
+            src="Assets/Layang-Logo.png"
+            alt="Company Logo"
+            class="footer-logo"
+          />
+          <p class="tagline">Layang Layang</p>
+
+          <h3>About Us</h3>
+          <p>
+            Platform pemesanan makanan cepat dan praktis, terinspirasi dari
+            Kiki's Delivery Service. Menyediakan berbagai menu pilihan dengan
+            fitur popup interaktif, tabel ulasan, dan form pemesanan.
+          </p>
+
+          <h4>Contact Us</h4>
+          <p>📞 083838117226</p>
+          <p>📧 riaazza304@gmail.com</p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#Rekomendasi-Menu">Rekomendasi Menu</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Subscribe More Info</h3>
+          <input
+            type="email"
+            placeholder="Enter your Email"
+            class="subscribe-input"
+          />
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/1EUomTGTBi/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/tempechiken?s=21"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/azaza.jpg?igsh=MTRzYWJla25scXd2MQ%3D%3D&utm_source=qr78 . l"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <p>
+          Copyright &copy;2025 | This website is made with love by Azaria Adila
+          Putri
+        </p>
+        <p>Dibuat sebagai latihan <strong>HTML, CSS & JS </strong> oleh <strong> Azaria Adila Putri</strong> – <em>X PPLG 1</em></p>
+      </div>
+    </footer>
+
+    <script src="JS/script.js"></script>
+  </body>
+</html>
